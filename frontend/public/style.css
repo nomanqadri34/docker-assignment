@@ -1,0 +1,316 @@
+/* =============================================
+   Global Reset & Variables
+   ============================================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary:       #6366f1;
+  --primary-dark:  #4f46e5;
+  --primary-glow:  rgba(99, 102, 241, 0.35);
+  --success:       #22c55e;
+  --danger:        #ef4444;
+  --bg:            #0f0f1a;
+  --surface:       #1a1a2e;
+  --surface-2:     #16213e;
+  --border:        rgba(255,255,255,0.08);
+  --text:          #f1f5f9;
+  --text-muted:    #94a3b8;
+  --radius:        16px;
+  --shadow:        0 25px 50px -12px rgba(0,0,0,0.6);
+  --transition:    0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* =============================================
+   Base
+   ============================================= */
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  color: var(--text);
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(99,102,241,0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(139,92,246,0.10) 0%, transparent 50%);
+}
+
+/* =============================================
+   Card
+   ============================================= */
+.container {
+  width: 100%;
+  max-width: 520px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  animation: fadeInUp 0.5s ease both;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* =============================================
+   Card Header
+   ============================================= */
+.card-header {
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  padding: 2.5rem 2rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.logo {
+  font-size: 3rem;
+  margin-bottom: 0.75rem;
+  display: block;
+  animation: bounce 0.6s ease 0.3s both;
+}
+
+@keyframes bounce {
+  0%   { transform: scale(0.5); opacity: 0; }
+  70%  { transform: scale(1.1); }
+  100% { transform: scale(1);   opacity: 1; }
+}
+
+.card-header h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+.subtitle {
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.7);
+}
+
+.success-header { background: linear-gradient(135deg, #16a34a, #22c55e); }
+.error-header   { background: linear-gradient(135deg, #b91c1c, #ef4444); }
+
+/* =============================================
+   Form
+   ============================================= */
+.form {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+input,
+select {
+  background: var(--surface-2);
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  color: var(--text);
+  font-size: 0.97rem;
+  padding: 0.75rem 1rem;
+  width: 100%;
+  transition: border-color var(--transition), box-shadow var(--transition);
+  outline: none;
+  appearance: none;
+}
+
+input::placeholder {
+  color: var(--text-muted);
+}
+
+input:focus,
+select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-glow);
+}
+
+select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%2394a3b8' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+
+/* =============================================
+   Submit Button
+   ============================================= */
+.btn-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 0.9rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: transform var(--transition), box-shadow var(--transition);
+  box-shadow: 0 4px 20px var(--primary-glow);
+}
+
+.btn-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px var(--primary-glow);
+}
+
+.btn-submit:active {
+  transform: translateY(0);
+}
+
+.btn-icon {
+  font-size: 1.1rem;
+  transition: transform var(--transition);
+}
+
+.btn-submit:hover .btn-icon {
+  transform: translateX(4px);
+}
+
+/* =============================================
+   Result Page
+   ============================================= */
+.result-table {
+  padding: 1.5rem 2rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.result-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--border);
+  gap: 1rem;
+  animation: fadeInUp 0.4s ease both;
+}
+
+.result-row:last-child {
+  border-bottom: none;
+}
+
+.result-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+.result-value {
+  font-weight: 500;
+  color: var(--text);
+  text-align: right;
+  word-break: break-word;
+}
+
+/* Grade badges */
+.grade-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.grade-A { background: rgba(34,197,94,0.15);  color: #4ade80; }
+.grade-B { background: rgba(99,102,241,0.15); color: #818cf8; }
+.grade-C { background: rgba(234,179,8,0.15);  color: #facc15; }
+.grade-D { background: rgba(249,115,22,0.15); color: #fb923c; }
+.grade-F { background: rgba(239,68,68,0.15);  color: #f87171; }
+
+/* Error list */
+.error-list {
+  list-style: none;
+  padding: 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.error-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #fca5a5;
+  font-size: 0.95rem;
+}
+
+.error-list li::before {
+  content: '⚠';
+  font-size: 1rem;
+}
+
+/* Alert */
+.alert {
+  margin: 1rem 2rem 0;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.alert-error {
+  background: rgba(239,68,68,0.1);
+  border: 1px solid rgba(239,68,68,0.3);
+  color: #f87171;
+}
+
+/* Back button */
+.btn-back {
+  display: block;
+  text-align: center;
+  margin: 1.5rem 2rem 2rem;
+  padding: 0.75rem;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all var(--transition);
+}
+
+.btn-back:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: rgba(99,102,241,0.06);
+}

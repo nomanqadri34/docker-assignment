@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Submission Result</title>
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+
+            <% if (result.success) { %>
+                <!-- SUCCESS -->
+                <div class="card-header success-header">
+                    <div class="logo">✅</div>
+                    <h1>Submission Successful</h1>
+                    <p class="subtitle">
+                        <%= result.message %>
+                    </p>
+                </div>
+
+                <div class="result-table">
+                    <div class="result-row">
+                        <span class="result-label">Name</span>
+                        <span class="result-value">
+                            <%= result.data.name %>
+                        </span>
+                    </div>
+                    <div class="result-row">
+                        <span class="result-label">Student ID</span>
+                        <span class="result-value">
+                            <%= result.data.student_id %>
+                        </span>
+                    </div>
+                    <div class="result-row">
+                        <span class="result-label">Email</span>
+                        <span class="result-value">
+                            <%= result.data.email %>
+                        </span>
+                    </div>
+                    <div class="result-row">
+                        <span class="result-label">Course</span>
+                        <span class="result-value">
+                            <%= result.data.course %>
+                        </span>
+                    </div>
+                    <div class="result-row">
+                        <span class="result-label">Grade</span>
+                        <span class="result-value grade-badge grade-<%= result.data.grade %>">
+                            <%= result.data.grade %> — <%= result.data.grade_status %>
+                        </span>
+                    </div>
+                </div>
+
+                <% } else { %>
+                    <!-- ERROR -->
+                    <div class="card-header error-header">
+                        <div class="logo">❌</div>
+                        <h1>Submission Failed</h1>
+                        <p class="subtitle">Please fix the following errors:</p>
+                    </div>
+
+                    <ul class="error-list">
+                        <% result.errors.forEach(function(err) { %>
+                            <li>
+                                <%= err %>
+                            </li>
+                            <% }); %>
+                    </ul>
+
+                    <% } %>
+
+                        <a href="/" class="btn-back">← Back to Form</a>
+        </div>
+    </div>
+</body>
+
+</html>

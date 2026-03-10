@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Registration Form</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="card-header">
+        <div class="logo">🎓</div>
+        <h1>Student Registration</h1>
+        <p class="subtitle">Powered by Node.js &amp; Flask</p>
+      </div>
+
+      <% if (error) { %>
+        <div class="alert alert-error"><%= error %></div>
+      <% } %>
+
+      <form action="/submit" method="POST" class="form" id="registrationForm">
+
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="e.g. John Doe"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="student_id">Student ID</label>
+          <input
+            type="text"
+            id="student_id"
+            name="student_id"
+            placeholder="e.g. S12345"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="e.g. john@university.edu"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="course">Course</label>
+          <select id="course" name="course" required>
+            <option value="" disabled selected>Select a course</option>
+            <option value="Computer Science">Computer Science</option>
+            <option value="Data Science">Data Science</option>
+            <option value="Software Engineering">Software Engineering</option>
+            <option value="Information Technology">Information Technology</option>
+            <option value="Artificial Intelligence">Artificial Intelligence</option>
+            <option value="Cybersecurity">Cybersecurity</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="grade">Grade</label>
+          <select id="grade" name="grade" required>
+            <option value="" disabled selected>Select a grade</option>
+            <option value="A">A — Excellent</option>
+            <option value="B">B — Good</option>
+            <option value="C">C — Average</option>
+            <option value="D">D — Below Average</option>
+            <option value="F">F — Fail</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn-submit" id="submitBtn">
+          <span class="btn-text">Submit</span>
+          <span class="btn-icon">→</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
