@@ -36,13 +36,11 @@ docker/
 
 ---
 
-## 🖼️ Docker Build Output
+### 🖥️ Docker Desktop Status — Containers Running
+![Docker Status 1](./screenshots/docker_desktop_1.png)
 
-### Build Step 1 — Loading Dockerfiles & Pulling Base Images
-![Docker Build Step 1](./screenshots/build1.png)
-
-### Build Step 2 — Images Built & Containers Created
-![Docker Build Step 2](./screenshots/build2.png)
+### 📄 Submission Verification — Backend Logs
+![Docker Status 2](./screenshots/docker_desktop_2.png)
 
 ---
 
@@ -156,13 +154,5 @@ POST /submit
 
 Student Assignment — Docker with Flask & Node.js
 
----
 
-## 🖼️ Docker Desktop Screenshots
-
-### 1. Services Running in Docker Desktop
-![Docker Desktop 1](./screenshots/docker_desktop_1.png)
-
-### 2. Live Logs & Submission Verification
-![Docker Desktop 2](./screenshots/docker_desktop_2.png)
 
