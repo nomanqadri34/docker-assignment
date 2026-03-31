@@ -155,3 +155,14 @@ POST /submit
 ## 👨‍💻 Author
 
 Student Assignment — Docker with Flask & Node.js
+
+---
+
+## 🖼️ Docker Desktop Screenshots
+
+### 1. Services Running in Docker Desktop
+![Docker Desktop 1](./screenshots/docker_desktop_1.png)
+
+### 2. Live Logs & Submission Verification
+![Docker Desktop 2](./screenshots/docker_desktop_2.png)
+
