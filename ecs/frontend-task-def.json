@@ -1,0 +1,38 @@
+{
+    "family": "express-frontend-task",
+    "networkMode": "awsvpc",
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "256",
+    "memory": "512",
+    "executionRoleArn": "arn:aws:iam::<YOUR_ACCOUNT_ID>:role/ecsTaskExecutionRole",
+    "containerDefinitions": [
+        {
+            "name": "express-frontend-container",
+            "image": "<YOUR_ACCOUNT_ID>.dkr.ecr.<AWS_REGION>.amazonaws.com/docker-assignment-frontend:latest",
+            "essential": true,
+            "portMappings": [
+                {
+                    "containerPort": 3000,
+                    "hostPort": 3000,
+                    "protocol": "tcp"
+                }
+            ],
+            "environment": [
+                {
+                    "name": "FLASK_URL",
+                    "value": "http://<BACKEND_PRIVATE_IP>:5000"
+                }
+            ],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/ecs/express-frontend-task",
+                    "awslogs-region": "<AWS_REGION>",
+                    "awslogs-stream-prefix": "ecs"
+                }
+            }
+        }
+    ]
+}
