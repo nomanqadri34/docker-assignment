@@ -60,19 +60,17 @@ During automated deployment, the AWS services were verified to be created active
 #### 📸 Deployment Screenshots
 Here is the visual proof of the automated AWS deployment script executing on the EC2 server and provisioning the infrastructure:
 
-<div align="center">
-  <img src="./new/Screenshot%202026-04-03%20004858.png" width="800" alt="Deployment Screenshot 1" />
-  <br/><br/>
-  <img src="./new/Screenshot%202026-04-03%20004905.png" width="800" alt="Deployment Screenshot 2" />
-  <br/><br/>
-  <img src="./new/Screenshot%202026-04-03%20004913.png" width="800" alt="Deployment Screenshot 3" />
-  <br/><br/>
-  <img src="./new/Screenshot%202026-04-03%20004920.png" width="800" alt="Deployment Screenshot 4" />
-  <br/><br/>
-  <img src="./new/Screenshot%202026-04-03%20004927.png" width="800" alt="Deployment Screenshot 5" />
-  <br/><br/>
-  <img src="./new/Screenshot%202026-04-03%20004935.png" width="800" alt="Deployment Screenshot 6" />
-</div>
+![Deployment Screenshot 1](./new/Screenshot%202026-04-03%20004858.png)
+<br><br>
+![Deployment Screenshot 2](./new/Screenshot%202026-04-03%20004905.png)
+<br><br>
+![Deployment Screenshot 3](./new/Screenshot%202026-04-03%20004913.png)
+<br><br>
+![Deployment Screenshot 4](./new/Screenshot%202026-04-03%20004920.png)
+<br><br>
+![Deployment Screenshot 5](./new/Screenshot%202026-04-03%20004927.png)
+<br><br>
+![Deployment Screenshot 6](./new/Screenshot%202026-04-03%20004935.png)
 
 ---
 **Submission Notice**: To avoid unexpected AWS charges, all EC2 Instances and ECS Clusters will be stopped/deleted after grading.
