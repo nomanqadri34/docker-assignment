@@ -19,5 +19,5 @@ variable "instance_type" {
 variable "key_name" {
   description = "Name of the EC2 Key Pair for SSH access"
   type        = string
-  default     = "docker-assignment-key"
+  default     = "nomanqadri34"
 }

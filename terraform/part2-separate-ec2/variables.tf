@@ -19,7 +19,7 @@ variable "instance_type" {
 variable "key_name" {
   description = "EC2 Key Pair name"
   type        = string
-  default     = "docker-assignment-key"
+  default     = "nomanqadri34"
 }
 
 variable "vpc_cidr" {
