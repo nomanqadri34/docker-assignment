@@ -1,0 +1,46 @@
+pipeline {
+    agent any
+
+    environment {
+        PROJECT_NAME = "express-frontend"
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                sh 'npm install'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                sh '''
+                    # Check if pm2 process is running, reload if yes, start if no
+                    pm2 describe $PROJECT_NAME > /dev/null
+                    if [ $? -eq 0 ]; then
+                        echo "Reloading existing application..."
+                        pm2 restart $PROJECT_NAME
+                    else
+                        echo "Starting application for the first time..."
+                        pm2 start server.js --name $PROJECT_NAME -- --port 3000
+                    fi
+                '''
+            }
+        }
+    }
+
+    post {
+        success {
+            echo "Express Frontend Deployed Successfully!"
+        }
+        failure {
+            echo "Deployment Failed. Check logs."
+        }
+    }
+}
