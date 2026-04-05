@@ -138,7 +138,7 @@ resource "aws_route_table_association" "rta_b" {
 
 resource "aws_security_group" "alb_sg" {
   name        = "${var.project_name}-alb-sg"
-  description = "ALB — allow HTTP from internet"
+  description = "ALB - allow HTTP from internet"
   vpc_id      = aws_vpc.main.id
 
   ingress {
@@ -163,7 +163,7 @@ resource "aws_security_group" "alb_sg" {
 
 resource "aws_security_group" "ecs_flask_sg" {
   name        = "${var.project_name}-ecs-flask-sg"
-  description = "ECS Flask tasks — accept 5000 from ALB SG"
+  description = "ECS Flask tasks - accept 5000 from ALB SG"
   vpc_id      = aws_vpc.main.id
 
   ingress {
@@ -188,7 +188,7 @@ resource "aws_security_group" "ecs_flask_sg" {
 
 resource "aws_security_group" "ecs_express_sg" {
   name        = "${var.project_name}-ecs-express-sg"
-  description = "ECS Express tasks — accept 3000 from ALB SG"
+  description = "ECS Express tasks - accept 3000 from ALB SG"
   vpc_id      = aws_vpc.main.id
 
   ingress {
@@ -264,7 +264,7 @@ resource "aws_cloudwatch_log_group" "express_logs" {
 ###############################################################
 
 resource "aws_ecs_cluster" "main" {
-  name = "${var.project_name}-cluster"
+  name = "${var.project_name}-cluster-v2"
 
   setting {
     name  = "containerInsights"
