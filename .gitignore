@@ -1,6 +1,30 @@
+# Node
 node_modules/
+npm-debug.log*
+.npm-cache/
+
+# Python
 __pycache__/
-*.pyc
+*.py[cod]
+venv/
 .env
+
+# Terraform
+**/.terraform/
+*.tfstate
+*.tfstate.backup
+*.tfvars
+.terraform.lock.hcl
+terraform.tfplan
+
+# OS
 .DS_Store
-*.log
+Thumbs.db
+
+# AWS
+*.pem
+.aws/
+
+# Editor
+.vscode/settings.json
+*.swp
