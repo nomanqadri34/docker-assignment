@@ -17,6 +17,16 @@ terraform plan
 terraform apply -auto-approve
 ```
 
+### Terraform Output (Part 1)
+```hcl
+Outputs:
+
+express_url = "http://3.252.239.192:3000"
+flask_url = "http://3.252.239.192:5000"
+instance_public_ip = "3.252.239.192"
+ssh_command = "ssh -i nomanqadri34.pem ubuntu@3.252.239.192"
+```
+
 ### Execution & Verification Screenshots
 <img src="teraform/Screenshot 2026-04-05 190634.png" width="800">
 <img src="teraform/Screenshot 2026-04-05 190643.png" width="800">
@@ -50,6 +60,20 @@ terraform plan
 terraform apply -auto-approve
 ```
 
+### Terraform Output (Part 2)
+```hcl
+Outputs:
+
+express_public_ip = "3.252.164.164"
+express_url = "http://3.252.164.164:3000"
+flask_health_check = "http://63.33.65.88:5000/health"
+flask_private_ip = "10.0.1.60"
+flask_public_ip = "63.33.65.88"
+flask_url = "http://63.33.65.88:5000"
+ssh_express = "ssh -i nomanqadri34.pem ubuntu@3.252.164.164"
+ssh_flask = "ssh -i nomanqadri34.pem ubuntu@63.33.65.88"
+```
+
 ### Execution & Verification Screenshots
 <img src="teraform/Screenshot 2026-04-05 191338.png" width="800">
 <img src="teraform/Screenshot 2026-04-05 191345.png" width="800">
@@ -71,6 +95,21 @@ cd terraform/part3-ecs-fargate
 terraform init
 terraform plan
 terraform apply -auto-approve
+```
+
+### Terraform Output (Part 3)
+```hcl
+Outputs:
+
+alb_dns_name = "docker-assignment-alb-1171939904.eu-west-1.elb.amazonaws.com"
+aws_region = "eu-west-1"
+ecr_express_url = "007977988656.dkr.ecr.eu-west-1.amazonaws.com/docker-assignment-express-frontend"
+ecr_flask_url = "007977988656.dkr.ecr.eu-west-1.amazonaws.com/docker-assignment-flask-backend"
+ecr_login_command = "aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 007977988656.dkr.ecr.eu-west-1.amazonaws.com"
+ecs_cluster_name = "docker-assignment-cluster-v2"
+flask_api_url = "http://docker-assignment-alb-1171939904.eu-west-1.elb.amazonaws.com/api"
+flask_health_url = "http://docker-assignment-alb-1171939904.eu-west-1.elb.amazonaws.com/health"
+frontend_url = "http://docker-assignment-alb-1171939904.eu-west-1.elb.amazonaws.com"
 ```
 
 ### Execution & Verification Screenshots
